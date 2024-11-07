@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserService } from 'src/apis/user/user.service';
+import { UserService } from 'src/apis/user.service';
 import { UserDto } from 'src/dto/userDto';
 import { Response } from 'express';
 
@@ -8,8 +8,8 @@ export class ServicioUsuariosService {
 
     constructor(private userApi:UserService) {}
 
-    registrar(user:UserDto, response:Response) {
-        return this.userApi.RegistrarUsuario(user, response);
+    async registrar(user:UserDto, response:Response) {
+        return await this.userApi.RegistrarUsuario(user, response);
     }
 
     update(correo:string, user:UserDto, response:Response) {

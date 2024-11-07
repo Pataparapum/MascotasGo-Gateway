@@ -33,3 +33,15 @@ export class UserDto{
     @IsNotEmpty()
     numero_mascotas: number;
 }
+
+export class UserLoginDto {
+    @IsEmail()
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(1)
+    correo: string;
+
+    @IsString()
+    @IsNotEmpty()
+    password: string;
+}
