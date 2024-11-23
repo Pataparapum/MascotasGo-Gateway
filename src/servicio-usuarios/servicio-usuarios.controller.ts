@@ -3,6 +3,7 @@ import { ServicioUsuariosService } from './servicio-usuarios.service';
 import { UserDto } from 'src/dto/userDto';
 import { Response } from 'express';
 import { JwtAuthGuard } from 'src/jwt/jwt.guard';
+import { tokenGuard } from 'src/guards/tokenGuard';
 
 @Controller('usuario')
 export class ServicioUsuariosController {
@@ -15,13 +16,13 @@ export class ServicioUsuariosController {
     }
 
     @Put(':correo')
-    @UseGuards(JwtAuthGuard)
+    @UseGuards(tokenGuard)
     update(@Param('correo') correo:string, @Body() user:UserDto, @Res() response:Response) {
         return this.userdb.update(correo, user, response);
     }
 
     @Delete(':correo')
-    @UseGuards(JwtAuthGuard)
+    @UseGuards(tokenGuard)
     delete(@Param('correo') correo:string, response:Response) {
         return this.userdb.delete(correo, response);
     }

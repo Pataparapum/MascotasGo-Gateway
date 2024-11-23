@@ -1,9 +1,9 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { UserLoginDto } from 'src/dto/userDto';
 import { ServicioAuthService } from './servicio-auth.service';
 
-@Controller('servicio-auth')
+@Controller('auth')
 export class ServicioAuthController {
 
     constructor(private auth:ServicioAuthService){}

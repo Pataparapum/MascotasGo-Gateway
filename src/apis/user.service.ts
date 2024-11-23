@@ -1,10 +1,11 @@
-import { Injectable} from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger} from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { UserDto, UserLoginDto } from 'src/dto/userDto';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { catchError, firstValueFrom } from 'rxjs';
 import { AxiosError } from 'axios';
+
 
 @Injectable()
 export class UserService {
@@ -50,20 +51,42 @@ export class UserService {
         return response.json({status: 201, data});
     }
 
-    async Login(user:UserLoginDto, response:Response):Promise<Response> {
-        const { data}  = await firstValueFrom(
-            this.api.post(`${this.authUrl}`, user).pipe(
+    async getOneUser(correo: string, response: Response): Promise<UserDto>{
+        const { data } = await firstValueFrom(
+            this.api.get(`${this.userUrl}/login/${correo}`).pipe(
+                catchError((error:AxiosError) => {
+                    throw response.json({error: error.response.data});
+                })
+            )
+        );
+
+        return data;
+    }
+
+    async Login(user:UserLoginDto, existUser:UserDto, response:Response):Promise<Response> {
+        const { data }  = await firstValueFrom(
+            this.api.post(`${this.authUrl}`, {loginUser: user, user: existUser}).pipe(
                 catchError((error: AxiosError) => {
                     throw response.json({error: error.response.data});
                 }),
             ),
         );
-    
-        return response.json({status: 200, data});
+        return response.cookie('data', data.data.user)
+                       .setHeader('x-access-token', data.data.token)
+                       .json({status:200})
     }
 
-    GetUsariosCuidadores(){
-        //ruta por crear
+    async Verified(req:Request) {
+        const { data } = await firstValueFrom(
+            this.api.get(`${this.authUrl}`).pipe(
+                catchError((error:AxiosError) => {
+                    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN)
+                })
+            ),
+        );
+        if (!data.isValid) return false;
+
+        return true
     }
 
 }
