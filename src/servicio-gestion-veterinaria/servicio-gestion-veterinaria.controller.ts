@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Res, UseGuards } from '@nestjs/common';
-import { citaDto } from 'src/dto/cita.dto';
-import { datosDto } from 'src/dto/datos.dto';
-import { veterinariasDto } from 'src/dto/veterinaria.dto';
+import { citaDto } from '../dto/cita.dto';
+import { datosDto } from '../dto/datos.dto';
+import { veterinariasDto } from '../dto/veterinaria.dto';
 import { ServicioGestionVeterinariaService } from './servicio-gestion-veterinaria.service';
 import { Response } from 'express';
-import { JwtAuthGuard } from 'src/login/jwt/jwt.guard';
+import { JwtAuthGuard } from '../login/jwt/jwt.guard';
 
 @Controller('veterinaria')
 export class ServicioGestionVeterinariaController {

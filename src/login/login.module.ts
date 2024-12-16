@@ -6,7 +6,7 @@ import { jwtConstanst } from './jwt/jwt.constant';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt/jwt.strategy';
 import { HttpModule } from '@nestjs/axios';
-import { UserService } from 'src/servicio-usuarios/http/user.service';
+import { UserService } from '../servicio-usuarios/http/user.service';
 
 @Module({
   imports: [

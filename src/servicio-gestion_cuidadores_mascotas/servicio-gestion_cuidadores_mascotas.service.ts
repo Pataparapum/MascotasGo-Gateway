@@ -1,4 +1,4 @@
-import { mascotasDto } from 'src/dto/mascotas.dto';
+import { mascotasDto } from '../dto/mascotas.dto';
 import { CuidadoresMascotasService } from './http/cuidadores_mascotas.service';
 import { Injectable } from '@nestjs/common';
 import { Response } from 'express';

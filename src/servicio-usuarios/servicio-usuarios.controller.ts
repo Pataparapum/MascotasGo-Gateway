@@ -2,7 +2,7 @@ import { Body, Controller, Param, Post, Res, Put, Delete, Get, UseGuards} from '
 import { ServicioUsuariosService } from './servicio-usuarios.service';
 import { UserDto } from '../dto/userDto';
 import { Response } from 'express';
-import { JwtAuthGuard } from 'src/login/jwt/jwt.guard';
+import { JwtAuthGuard } from '../login/jwt/jwt.guard';
 
 @Controller('usuario')
 export class ServicioUsuariosController {

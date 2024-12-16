@@ -1,9 +1,8 @@
-import { mascotasDto } from 'src/dto/mascotas.dto';
 import { CuidadoresApiService } from './http/cuidadores_api.service';
 import { Injectable } from '@nestjs/common';
 import { Response } from 'express';
-import { cuidadoresDto } from 'src/dto/cuidadores.dto';
-import { trabajoDto } from 'src/dto/trabajo.dto';
+import { cuidadoresDto } from '../dto/cuidadores.dto';
+import { trabajoDto } from '../dto/trabajo.dto';
 
 @Injectable()
 export class CuidadoresService {

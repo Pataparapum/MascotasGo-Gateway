@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Res, UseGuards } from '@nestjs/common';
-import { mascotasDto } from 'src/dto/mascotas.dto';
+import { mascotasDto } from '../dto/mascotas.dto';
 import { ServicioGestionCuidadoresMascotasService } from './servicio-gestion_cuidadores_mascotas.service';
 import { Response } from 'express';
-import { JwtAuthGuard } from 'src/login/jwt/jwt.guard';
+import { JwtAuthGuard } from '../login/jwt/jwt.guard';
 
 @Controller('mascotas')
 export class ServicioGestionCuidadoresMascotasController {

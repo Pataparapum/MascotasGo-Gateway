@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Response } from 'express';
 import { firstValueFrom } from 'rxjs';
-import { mascotasDto } from 'src/dto/mascotas.dto';
+import { mascotasDto } from '../../dto/mascotas.dto';
 
 
 @Injectable()

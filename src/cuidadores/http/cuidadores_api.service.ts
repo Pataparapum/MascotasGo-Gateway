@@ -3,8 +3,8 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Response } from 'express';
 import { firstValueFrom } from 'rxjs';
-import { cuidadoresDto } from 'src/dto/cuidadores.dto';
-import { trabajoDto } from 'src/dto/trabajo.dto';
+import { cuidadoresDto } from '../../dto/cuidadores.dto';
+import { trabajoDto } from '../../dto/trabajo.dto';
 
 @Injectable()
 export class CuidadoresApiService {

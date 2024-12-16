@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
-import { UserDto, } from 'src/dto/userDto';
+import { UserDto, } from '../../dto/userDto';
 import { Response } from 'express';
 import { firstValueFrom } from 'rxjs';
 

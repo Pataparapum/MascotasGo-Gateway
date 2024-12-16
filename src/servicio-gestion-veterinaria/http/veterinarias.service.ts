@@ -2,10 +2,10 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { firstValueFrom } from 'rxjs';
-import { datosDto } from 'src/dto/datos.dto';
+import { datosDto } from '../../dto/datos.dto';
 import { Response } from 'express';
-import { veterinariasDto } from 'src/dto/veterinaria.dto';
-import { citaDto } from 'src/dto/cita.dto';
+import { veterinariasDto } from '../../dto/veterinaria.dto';
+import { citaDto } from '../../dto/cita.dto';
 
 @Injectable()
 export class VeterinariasService {

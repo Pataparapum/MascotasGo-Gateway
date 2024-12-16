@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Res, UseGuards } from '@nestjs/common';
-import { cuidadoresDto } from 'src/dto/cuidadores.dto';
-import { trabajoDto } from 'src/dto/trabajo.dto';
+import { cuidadoresDto } from '../dto/cuidadores.dto';
+import { trabajoDto } from '../dto/trabajo.dto';
 import { Response } from 'express';
 import { CuidadoresService } from './cuidadores.service';
-import { JwtAuthGuard } from 'src/login/jwt/jwt.guard';
+import { JwtAuthGuard } from '../login/jwt/jwt.guard';
 
 @Controller('cuidadores')
 export class CuidadoresController {

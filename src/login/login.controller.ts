@@ -1,4 +1,4 @@
-import { UserLoginDto } from 'src/dto/userDto';
+import { UserLoginDto } from '../dto/userDto';
 import { Body, Controller, Post, Res } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { Response } from 'express';

@@ -1,4 +1,4 @@
-import { UserLoginDto } from 'src/dto/userDto';
+import { UserLoginDto } from '../dto/userDto';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compare } from 'bcrypt';
