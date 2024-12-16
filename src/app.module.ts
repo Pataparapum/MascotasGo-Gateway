@@ -8,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
 import { HttpModule } from '@nestjs/axios';
 import { CuidadoresModule } from './cuidadores/cuidadores.module';
+import { welcomeController } from './welcome.controller';
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import { CuidadoresModule } from './cuidadores/cuidadores.module';
     PassportModule,
     CuidadoresModule
   ],
-  providers:[JwtService]
+  providers:[JwtService],
+  controllers:[welcomeController]
 
 })
 export class AppModule {
