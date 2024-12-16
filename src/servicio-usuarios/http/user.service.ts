@@ -42,10 +42,17 @@ export class UserService {
     }
 
     async getUserWithId(id:string, response:Response): Promise<Response> {
-        const req = this.api.get<UserDto[]>(`${this.userUrl}/${id}`);
+        const req = this.api.get<UserDto>(`${this.userUrl}/${id}`);
         const { data } = await firstValueFrom(req);
 
         return response.json(data);
+    }
+
+    async getAll(response:Response): Promise<Response> {
+        const req = this.api.get<UserDto[]>(`${this.userUrl}`);
+        const { data } = await firstValueFrom(req);
+
+        return response.json(data)
     }
 
 

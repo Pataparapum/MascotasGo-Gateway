@@ -28,8 +28,8 @@ export class CuidadoresApiService {
         return response.json(data)
     }
 
-    async ModificarDatosDelCuidador(nuevaCuidador:cuidadoresDto, response:Response): Promise<Response>{
-        const req = this.api.put(`${this.mc_url}/cuidadores`, nuevaCuidador);
+    async ModificarDatosDelCuidador(id:string, nuevaCuidador:cuidadoresDto, response:Response): Promise<Response>{
+        const req = this.api.put(`${this.mc_url}/cuidadores/id`, nuevaCuidador);
         const { data } = await firstValueFrom(req);
 
         return response.json(data);
@@ -64,8 +64,8 @@ export class CuidadoresApiService {
         return response.json(data)
     }
 
-    async ModificarDatosDelTrabajo(nuevaTrabajo:trabajoDto, response:Response): Promise<Response>{
-        const req = this.api.put(`${this.mc_url}/trabajo`, nuevaTrabajo);
+    async ModificarDatosDelTrabajo(id:string, nuevaTrabajo:trabajoDto, response:Response): Promise<Response>{
+        const req = this.api.put(`${this.mc_url}/trabajo/${id}`, nuevaTrabajo);
         const { data } = await firstValueFrom(req);
 
         return response.json({status: 201, data});

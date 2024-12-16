@@ -21,6 +21,10 @@ export class ServicioUsuariosService {
     }
 
     async get(id:string, response:Response) {
-        return await this.userApi.getUserWithId(id, response)
+        return await this.userApi.getUserWithId(id, response);
+    }
+
+    async getAll(response:Response) {
+        return await this.userApi.getAll(response);
     }
 }

@@ -13,8 +13,8 @@ export class ServicioGestionCuidadoresMascotasService {
         return await this.mc.RegistrarMascota(mascota, response);
     }
 
-    async updateMascota(nuevaMascota:mascotasDto, response:Response) {
-        return await this.mc.ModificarDatosDeMascota(nuevaMascota, response);
+    async updateMascota(id:string, nuevaMascota:mascotasDto, response:Response) {
+        return await this.mc.ModificarDatosDeMascota(id, nuevaMascota, response);
     }
 
     async DeleteMascota(id:string, response:Response) {

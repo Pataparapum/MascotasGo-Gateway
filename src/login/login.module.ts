@@ -6,6 +6,7 @@ import { jwtConstanst } from './jwt/jwt.constant';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt/jwt.strategy';
 import { HttpModule } from '@nestjs/axios';
+import { UserService } from 'src/servicio-usuarios/http/user.service';
 
 @Module({
   imports: [
@@ -13,9 +14,9 @@ import { HttpModule } from '@nestjs/axios';
       secret: jwtConstanst.secret
     }),
     PassportModule,
-    HttpModule
+    HttpModule,
   ],
   controllers: [LoginController],
-  providers: [LoginService, JwtStrategy]
+  providers: [LoginService, JwtStrategy, UserService]
 })
 export class LoginModule {}

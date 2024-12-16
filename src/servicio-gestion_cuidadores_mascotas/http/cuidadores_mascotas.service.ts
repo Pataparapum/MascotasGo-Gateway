@@ -28,15 +28,15 @@ export class CuidadoresMascotasService {
         return response.json(data)
     }
 
-    async ModificarDatosDeMascota(nuevaMascota:mascotasDto, response:Response): Promise<Response>{
-        const req = this.api.put(`${this.mc_url}/mascotas`, nuevaMascota);
+    async ModificarDatosDeMascota(id:string, nuevaMascota:mascotasDto, response:Response): Promise<Response>{
+        const req = this.api.put(`${this.mc_url}/mascotas/${id}`, nuevaMascota);
         const { data } = await firstValueFrom(req);
 
         return response.json(data);
     }
 
     async getAllMascota(user:string, response:Response): Promise<Response> {
-        const req = this.api.get(`${this.mc_url}/mascotas/${user}` );
+        const req = this.api.get(`${this.mc_url}/mascotas/user/${user}` );
         const { data } = await firstValueFrom(req)
         
         return response.json(data);

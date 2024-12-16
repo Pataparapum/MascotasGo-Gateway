@@ -9,14 +9,14 @@ import { trabajoDto } from 'src/dto/trabajo.dto';
 export class CuidadoresService {
 
     constructor(private mc:CuidadoresApiService){}
-    
+
     //Cuidadores
     async addCuidador(cuidador:cuidadoresDto, response:Response){
         return await this.mc.registrarCuidador(cuidador, response);
     }
 
-    async updateCuidador(nuevoCuidador:cuidadoresDto, response:Response) {
-        return await this.mc.ModificarDatosDelCuidador(nuevoCuidador, response);
+    async updateCuidador(id:string, nuevoCuidador:cuidadoresDto, response:Response) {
+        return await this.mc.ModificarDatosDelCuidador(id, nuevoCuidador, response);
     }
 
     async DeleteCuidador(cuidador:string, response:Response) {
@@ -36,8 +36,8 @@ export class CuidadoresService {
         return await this.mc.RegistrarTrabajo(trabajo, response)
     }
 
-    async updateTrabajo(nuevoTrabajo:trabajoDto, response:Response) {
-        return await this.mc.ModificarDatosDelTrabajo(nuevoTrabajo, response)
+    async updateTrabajo(id:string, nuevoTrabajo:trabajoDto, response:Response) {
+        return await this.mc.ModificarDatosDelTrabajo(id, nuevoTrabajo, response)
     }
 
     async DeleteTrabajo(id:string, response:Response) {
