@@ -28,8 +28,8 @@ export class VeterinariasService {
         return response.json(data);
     }
 
-    async ModificarDatosDeVeterinaria(nuevaVeterinaria:veterinariasDto, response:Response): Promise<Response>{
-        const req = this.api.put(`${this.veterinaria_url}/veterinaria`, nuevaVeterinaria)
+    async ModificarDatosDeVeterinaria(id:string, nuevaVeterinaria:veterinariasDto, response:Response): Promise<Response>{
+        const req = this.api.put(`${this.veterinaria_url}/veterinaria/${id}`, nuevaVeterinaria)
         const { data } = await firstValueFrom(req);
 
         return response.json(data);

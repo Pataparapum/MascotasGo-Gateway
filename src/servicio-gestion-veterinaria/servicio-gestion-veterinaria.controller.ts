@@ -24,10 +24,10 @@ export class ServicioGestionVeterinariaController {
         return await this.api.deleteVeterinaria(id, response);
     }
 
-    @Put()
+    @Put(':id')
     @UseGuards(JwtAuthGuard)
-    async updateDatosDeVeterinaria(nuevaVeterinaria:veterinariasDto, @Res() response:Response){
-        return await this.api.updateDatosDeVeterinaria(nuevaVeterinaria, response);
+    async updateDatosDeVeterinaria(@Param('id') id:string, nuevaVeterinaria:veterinariasDto, @Res() response:Response){
+        return await this.api.updateDatosDeVeterinaria(id, nuevaVeterinaria, response);
     }
 
     @Get(':id')

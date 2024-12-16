@@ -18,8 +18,8 @@ export class ServicioGestionVeterinariaService {
         return await this.api.EliminarVeterinaria(id, response);
     }
 
-    async updateDatosDeVeterinaria(nuevaVeterinaria:veterinariasDto, response:Response){
-        return await this.api.ModificarDatosDeVeterinaria(nuevaVeterinaria, response);
+    async updateDatosDeVeterinaria(id:string, nuevaVeterinaria:veterinariasDto, response:Response){
+        return await this.api.ModificarDatosDeVeterinaria(id, nuevaVeterinaria, response);
     }
 
     async getAll(user:string, response:Response): Promise<Response> {

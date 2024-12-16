@@ -29,7 +29,7 @@ export class CuidadoresApiService {
     }
 
     async ModificarDatosDelCuidador(id:string, nuevaCuidador:cuidadoresDto, response:Response): Promise<Response>{
-        const req = this.api.put(`${this.mc_url}/cuidadores/id`, nuevaCuidador);
+        const req = this.api.put(`${this.mc_url}/cuidadores/${id}`, nuevaCuidador);
         const { data } = await firstValueFrom(req);
 
         return response.json(data);
@@ -72,7 +72,7 @@ export class CuidadoresApiService {
     }
 
     async getAllTrabajo(response:Response): Promise<Response> {
-        const req = this.api.get(`${this.mc_url}/trabaja`);
+        const req = this.api.get(`${this.mc_url}/trabajo`);
         const { data } = await firstValueFrom(req)
         
         return response.json(data);
