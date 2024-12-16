@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UserService } from 'src/apis/user.service';
-import { UserDto } from 'src/dto/userDto';
+import { UserService } from './http/user.service';
+import { UserDto } from '../dto/userDto';
 import { Response } from 'express';
 
 @Injectable()
@@ -18,5 +18,9 @@ export class ServicioUsuariosService {
 
     async delete(correo:string, response:Response) {
         return await this.userApi.EliminarCuenta(correo, response);
+    }
+
+    async get(id:string, response:Response) {
+        return await this.userApi.getUserWithId(id, response)
     }
 }

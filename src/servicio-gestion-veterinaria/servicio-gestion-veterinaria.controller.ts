@@ -12,44 +12,43 @@ export class ServicioGestionVeterinariaController {
 
     //veterinaria ruta
     @Post()
-    addVeterinaria(@Body() veterinaria:datosDto, @Res() response:Response){
-        return this.api.addVeterinaria(veterinaria, response);
+    async addVeterinaria(@Body() veterinaria:datosDto, @Res() response:Response){
+        return await this.api.addVeterinaria(veterinaria, response);
     }
 
     @Delete(':id')
-    deleteVeterinaria(@Param('id') id:string, @Res() response:Response){
-        return this.api.deleteVeterinaria(id, response);
+    async deleteVeterinaria(@Param('id') id:string, @Res() response:Response){
+        return await this.api.deleteVeterinaria(id, response);
     }
 
     @Put()
-    updateDatosDeVeterinaria(nuevaVeterinaria:veterinariasDto, @Res() response:Response){
-        return this.api.updateDatosDeVeterinaria(nuevaVeterinaria, response);
+    async updateDatosDeVeterinaria(nuevaVeterinaria:veterinariasDto, @Res() response:Response){
+        return await this.api.updateDatosDeVeterinaria(nuevaVeterinaria, response);
     }
 
     @Get(':id')
-    getAllVeterinarias(@Param('id') user:string, @Res() response:Response) {
-        return this.api.getAll(user, response);
+    async getAllVeterinarias(@Param('id') user:string, @Res() response:Response) {
+        return await this.api.getAll(user, response);
     }
-
 
     //cita ruta
     @Post('cita')
-    addCita(@Body() nuevaCita:citaDto, @Res() response:Response) {
-        return this.api.addCita(nuevaCita, response)
+    async addCita(@Body() nuevaCita:citaDto, @Res() response:Response) {
+        return await this.api.addCita(nuevaCita, response)
     }
  
     @Delete('cita/:id')
-    deleteCita(@Param('id') id:string, @Res() response:Response) {
-        return this.api.deleteCita(id, response)
+    async deleteCita(@Param('id') id:string, @Res() response:Response) {
+        return await this.api.deleteCita(id, response)
     }
 
     @Get('cita/veterinaria/:id')
-    getAllCita(@Param('id') id:string, @Res() response:Response){
-        return this.api.getAllCita(id, response)
+    async getAllCita(@Param('id') id:string, @Res() response:Response){
+        return await this.api.getAllCita(id, response)
     }
 
     @Get('cita/:userId')
-    getUserCita(@Param('userId') userId:string, @Res() response:Response){
-        return this.api.getUserCita(userId, response)
+    async getUserCita(@Param('userId') userId:string, @Res() response:Response){
+        return await this.api.getUserCita(userId, response)
     }
 }

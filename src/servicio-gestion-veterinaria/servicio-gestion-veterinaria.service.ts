@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { VeterinariasService } from 'src/apis/veterinarias.service';
+import { VeterinariasService } from './http/veterinarias.service';
 import { datosDto } from 'src/dto/datos.dto';
 import { Response } from 'express';
 import { veterinariasDto } from 'src/dto/veterinaria.dto';

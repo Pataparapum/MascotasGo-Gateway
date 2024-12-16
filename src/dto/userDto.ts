@@ -45,3 +45,8 @@ export class UserLoginDto {
     @IsNotEmpty()
     password: string;
 }
+
+export class UserObject {
+    loginUser:UserLoginDto
+    user:UserDto
+}
